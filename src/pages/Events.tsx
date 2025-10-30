@@ -240,7 +240,7 @@ const Events = () => {
         </SheetContent>
       </Sheet>
 
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <Sheet open={homeServiceOpen} onOpenChange={setHomeServiceOpen}>
           <SheetTrigger asChild>
             <Button size="lg" className="shadow-lg">
