@@ -29,36 +29,42 @@ const Index = () => {
       role: 'Врач-невролог, Руководитель центра',
       description: 'Диагностика и лечение заболеваний нервной системы у детей и взрослых. Составление индивидуальных программ реабилитации.',
       quote: 'Мой подход — найти корень проблемы и работать с ним, а не просто убирать симптомы.',
+      image: 'https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/d5e0b1f8-46a1-4012-ad64-b66ec8b09a73.jpg',
     },
     {
       name: 'Горяйнова Яна Олеговна',
       role: 'Медицинский психолог, Нейропсихолог',
       description: 'Диагностика и коррекция нарушений развития у детей (РАС, СДВГ, ЗПРР). Психологическое сопровождение взрослых.',
       quote: 'Помогаю мозгу найти новые пути развития, когда основные оказались заблокированы.',
+      image: 'https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/428859a1-a849-4d0c-bab0-092707b8fb23.jpg',
     },
     {
       name: 'Дунаева Мария Васильевна',
       role: 'Врач-рефлексотерапевт, Специалист по ЛФК',
       description: 'Восстановительное лечение после травм и инсультов. Лечение болевых синдромов. Нейрореабилитация.',
       quote: 'Тело обладает огромными ресурсами для самовосстановления — нужно лишь правильно ему помочь.',
+      image: 'https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/a4598a25-75e6-42b7-9498-403117c50e9a.jpg',
     },
     {
       name: 'Ольга Михайловна',
       role: 'Логопед-дефектолог',
       description: 'Коррекция речевых нарушений у детей и взрослых. Логопедический массаж. Работа с неговорящими детьми.',
       quote: 'Речь — это не просто слова. Это мост к общению с миром, и я помогаю его построить.',
+      image: 'https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/08d3bd9f-5f7e-4ee4-8bf5-31b063f06594.jpg',
     },
     {
       name: 'Романова',
       role: 'Специалист по БАК, Врач-физиотерапевт',
       description: 'Биоакустическая коррекция головного мозга. Нейротерапия. Функциональная диагностика.',
       quote: 'Использую методы, которые позволяют мозгу «услышать» себя и запустить процессы саморегуляции.',
+      image: 'https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/cb13a43b-757a-4b65-99e8-de64b17c5993.jpg',
     },
     {
       name: 'Ковалёва Елена Германовна',
       role: 'Инструктор ЛФК, Специалист по АФК',
       description: 'Лечебная физкультура для детей с ДЦП и взрослых с нарушениями движения. Кинезиотерапия.',
       quote: 'Правильное движение — это жизнь. Я учу этому движению, учитывая все возможности тела.',
+      image: 'https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/6761058f-c303-4ecc-9560-892e2d1ea3dc.jpg',
     },
   ];
 
@@ -594,18 +600,14 @@ const Index = () => {
               Знакомьтесь с вашими специалистами
             </h2>
 
-            <div className="mb-8 overflow-hidden rounded-xl">
-              <img 
-                src="https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/4e70a375-135a-42e2-9382-af6d1b3d44e7.jpg" 
-                alt="Команда специалистов центра Потенциал" 
-                className="h-64 w-full object-cover"
-              />
-            </div>
-
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {specialists.map((specialist, index) => (
                 <Card key={index} className="overflow-hidden transition-all hover:shadow-xl">
-                  <div className="h-48 bg-gradient-to-br from-primary/10 to-secondary/10"></div>
+                  <img 
+                    src={specialist.image} 
+                    alt={specialist.name} 
+                    className="h-64 w-full object-cover"
+                  />
                   <CardContent className="p-6">
                     <h3 className="mb-2 text-lg font-bold text-primary">{specialist.name}</h3>
                     <p className="mb-3 text-sm font-medium text-secondary">{specialist.role}</p>
