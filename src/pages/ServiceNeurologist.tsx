@@ -12,9 +12,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from '@/components/ui/navigation-menu';
 
 const ServiceNeurologist = () => {
   const [appointmentOpen, setAppointmentOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const targetAudience = [
     {
@@ -100,11 +109,96 @@ const ServiceNeurologist = () => {
               <span className="text-xl font-bold text-primary-foreground">Потенциал</span>
             </a>
           </div>
-          <Button variant="ghost" className="text-primary-foreground hover:text-accent" asChild>
-            <a href="/">← Вернуться на главную</a>
-          </Button>
+
+          <div className="hidden lg:block">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="/">
+                    Главная
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm text-primary-foreground hover:text-accent data-[state=open]:text-accent">О нас</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[200px] gap-2 p-4">
+                      <li><a href="/#about" className="block rounded-md p-2 text-sm hover:bg-accent">Наша философия</a></li>
+                      <li><a href="/#team" className="block rounded-md p-2 text-sm hover:bg-accent">Команда</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Лицензии и документы</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Галерея</a></li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm text-primary-foreground hover:text-accent data-[state=open]:text-accent">Детям</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[250px] gap-2 p-4">
+                      <li className="font-semibold text-xs text-muted-foreground px-2">Консультации и диагностика</li>
+                      <li><a href="/services/neurologist" className="block rounded-md p-2 text-sm hover:bg-accent">Невролог</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Диагностика готовности к школе</a></li>
+                      <li className="font-semibold text-xs text-muted-foreground px-2 mt-2">Терапия</li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Бобат-терапия</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">БАК</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">ЛФК/АФК</a></li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm text-primary-foreground hover:text-accent data-[state=open]:text-accent">Взрослым</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[250px] gap-2 p-4">
+                      <li className="font-semibold text-xs text-muted-foreground px-2">Консультации</li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Невролог</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">ЭЭГ</a></li>
+                      <li className="font-semibold text-xs text-muted-foreground px-2 mt-2">Терапия</li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Рефлексотерапия</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">БАК</a></li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="#">
+                    Программы
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="#">
+                    Мероприятия
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="/#contact">
+                    Контакты
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="icon" className="lg:hidden text-primary-foreground hover:text-accent hover:bg-primary/90" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <Icon name="Menu" className="h-6 w-6" />
+            </Button>
+          </div>
         </div>
       </header>
+
+      <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+        <SheetContent side="left">
+          <SheetHeader>
+            <SheetTitle>Меню</SheetTitle>
+          </SheetHeader>
+          <nav className="mt-6 flex flex-col gap-2">
+            <a href="/" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Главная</a>
+            <a href="/#about" className="rounded-md p-3 text-sm font-medium hover:bg-accent">О нас</a>
+            <a href="/services/neurologist" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Детям</a>
+            <a href="/#services" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Взрослым</a>
+            <a href="#" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Программы</a>
+            <a href="#" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Мероприятия</a>
+            <a href="/#contact" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Контакты</a>
+          </nav>
+        </SheetContent>
+      </Sheet>
 
       <section className="relative overflow-hidden py-20 md:py-32">
         <div 
@@ -637,11 +731,83 @@ const ServiceNeurologist = () => {
         </div>
       </section>
 
-      <footer className="border-t bg-muted/30 py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-muted-foreground">
-            © 2024 Центр «Потенциал». Все права защищены.
-          </p>
+      <footer className="border-t bg-muted/50 py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div>
+              <h3 className="mb-4 font-semibold text-primary">Контакты</h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <p className="flex items-start gap-2">
+                  <Icon name="MapPin" className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                  г. Ковров, ул. Грибоедова, д. 1
+                </p>
+                <p className="flex items-center gap-2">
+                  <Icon name="Phone" className="h-4 w-4 flex-shrink-0" />
+                  8-912-95-70907
+                </p>
+                <p className="flex items-center gap-2">
+                  <Icon name="Phone" className="h-4 w-4 flex-shrink-0" />
+                  8-993-747-99-07
+                </p>
+                <p className="flex items-start gap-2">
+                  <Icon name="Clock" className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                  Пн-Пт: 9:00-19:00, Сб: 9:00-16:00, Вс: Выходной
+                </p>
+                <p className="font-medium text-primary">Обязательна предварительная запись!</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold text-primary">Информация</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="/#about" className="hover:text-primary">
+                    О нас
+                  </a>
+                </li>
+                <li>
+                  <a href="/#services" className="hover:text-primary">
+                    Направления
+                  </a>
+                </li>
+                <li>
+                  <a href="/#team" className="hover:text-primary">
+                    Специалисты
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary">
+                    Полезные материалы
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold text-primary">Документы</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="#" className="hover:text-primary">
+                    Лицензии и документы
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary">
+                    Прайс-лист
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary">
+                    Политика конфиденциальности
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
+            <p>© 2025 Центр неврологии и реабилитации «Потенциал». Все права защищены.</p>
+          </div>
         </div>
       </footer>
     </div>
