@@ -179,23 +179,23 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-primary shadow-md">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2">
-            <Icon name="Sparkles" className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-primary">Потенциал</span>
+            <Icon name="Sparkles" className="h-8 w-8 text-primary-foreground" />
+            <span className="text-xl font-bold text-primary-foreground">Потенциал</span>
           </div>
 
           <div className="hidden lg:block">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="/">
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="/">
                     Главная
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm">О нас</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-sm text-primary-foreground hover:text-accent data-[state=open]:text-accent">О нас</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[200px] gap-2 p-4">
                       <li><a href="#about" className="block rounded-md p-2 text-sm hover:bg-accent">Наша философия</a></li>
@@ -206,7 +206,7 @@ const Index = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm">Детям</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-sm text-primary-foreground hover:text-accent data-[state=open]:text-accent">Детям</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[250px] gap-2 p-4">
                       <li className="font-semibold text-xs text-muted-foreground px-2">Консультации и диагностика</li>
@@ -220,7 +220,7 @@ const Index = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm">Взрослым</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-sm text-primary-foreground hover:text-accent data-[state=open]:text-accent">Взрослым</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[250px] gap-2 p-4">
                       <li className="font-semibold text-xs text-muted-foreground px-2">Консультации</li>
@@ -233,17 +233,17 @@ const Index = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="#">
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="#">
                     Программы
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="#">
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="#">
                     Мероприятия
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="#contact">
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="#contact">
                     Контакты
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -252,7 +252,7 @@ const Index = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <Button variant="ghost" size="icon" className="lg:hidden text-primary-foreground hover:text-accent hover:bg-primary/90" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <Icon name="Menu" className="h-6 w-6" />
             </Button>
           </div>
