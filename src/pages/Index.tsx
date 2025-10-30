@@ -479,6 +479,13 @@ const Index = () => {
 
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
+                <div className="mb-6 overflow-hidden rounded-xl">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/861d0e20-6b74-4a02-87d4-9bac4ae33c4a.jpg" 
+                    alt="Детская реабилитация" 
+                    className="h-48 w-full object-cover"
+                  />
+                </div>
                 <div className="mb-6 flex items-center gap-3">
                   <div className="rounded-full bg-accent p-2">
                     <Icon name="Baby" className="h-6 w-6 text-white" />
@@ -507,6 +514,13 @@ const Index = () => {
               </div>
 
               <div>
+                <div className="mb-6 overflow-hidden rounded-xl">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/94e1f2a2-66a9-40f3-a702-ad06aed9087c.jpg" 
+                    alt="Реабилитация взрослых" 
+                    className="h-48 w-full object-cover"
+                  />
+                </div>
                 <div className="mb-6 flex items-center gap-3">
                   <div className="rounded-full bg-secondary p-2">
                     <Icon name="User" className="h-6 w-6 text-white" />
@@ -573,6 +587,14 @@ const Index = () => {
             <h2 className="mb-12 text-center text-3xl font-bold text-primary md:text-4xl">
               Знакомьтесь с вашими специалистами
             </h2>
+
+            <div className="mb-8 overflow-hidden rounded-xl">
+              <img 
+                src="https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/4e70a375-135a-42e2-9382-af6d1b3d44e7.jpg" 
+                alt="Команда специалистов центра Потенциал" 
+                className="h-64 w-full object-cover"
+              />
+            </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {specialists.map((specialist, index) => (
