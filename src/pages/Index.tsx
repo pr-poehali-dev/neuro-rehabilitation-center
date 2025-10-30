@@ -377,17 +377,23 @@ const Index = () => {
         </Sheet>
       </div>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/10 py-20 md:py-32">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden py-20 md:py-32">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/21c67491-5d3c-416c-8c88-d39ecde31b47/files/e39b4e93-9ce4-4a51-9c15-79e8c12fd849.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-secondary/90"></div>
+        </div>
+        <div className="container relative z-10 mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center animate-fade-in">
-            <h1 className="mb-6 text-4xl font-bold leading-tight text-primary md:text-6xl">
+            <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-6xl">
               Используя наши возможности, поможем вам реализовать свой{' '}
-              <span className="text-secondary">ПОТЕНЦИАЛ</span>
+              <span className="text-accent">ПОТЕНЦИАЛ</span>
             </h1>
-            <p className="mb-4 text-xl font-semibold text-secondary md:text-2xl">
+            <p className="mb-4 text-xl font-semibold text-white md:text-2xl">
               Мозг нуждается в тренировке, чтобы быть в полезной форме!
             </p>
-            <p className="mb-8 text-base text-muted-foreground md:text-lg">
+            <p className="mb-8 text-base text-white/90 md:text-lg">
               Мы создали пространство, где есть всё для развития и восстановления деятельности головного и спинного мозга,
               лечения боли (голова, спина, руки, ноги) для детей и взрослых. Здесь вы найдете ответы, план действий и
               команду, которая поведет вас к результату.
