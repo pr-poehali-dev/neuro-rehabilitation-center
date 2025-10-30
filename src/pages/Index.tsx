@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Icon from '@/components/ui/icon';
 import {
   NavigationMenu,
@@ -36,6 +37,75 @@ const Index = () => {
       role: 'Врач-рефлексотерапевт, Специалист по ЛФК',
       description: 'Восстановительное лечение после травм и инсультов. Лечение болевых синдромов. Нейрореабилитация.',
       quote: 'Тело обладает огромными ресурсами для самовосстановления — нужно лишь правильно ему помочь.',
+    },
+    {
+      name: 'Ольга Михайловна',
+      role: 'Логопед-дефектолог',
+      description: 'Коррекция речевых нарушений у детей и взрослых. Логопедический массаж. Работа с неговорящими детьми.',
+      quote: 'Речь — это не просто слова. Это мост к общению с миром, и я помогаю его построить.',
+    },
+    {
+      name: 'Романова',
+      role: 'Специалист по БАК, Врач-физиотерапевт',
+      description: 'Биоакустическая коррекция головного мозга. Нейротерапия. Функциональная диагностика.',
+      quote: 'Использую методы, которые позволяют мозгу «услышать» себя и запустить процессы саморегуляции.',
+    },
+    {
+      name: 'Ковалёва Елена Германовна',
+      role: 'Инструктор ЛФК, Специалист по АФК',
+      description: 'Лечебная физкультура для детей с ДЦП и взрослых с нарушениями движения. Кинезиотерапия.',
+      quote: 'Правильное движение — это жизнь. Я учу этому движению, учитывая все возможности тела.',
+    },
+  ];
+
+  const methods = [
+    { icon: 'Radio', title: 'БАК', description: 'Биоакустическая коррекция мозга' },
+    { icon: 'Baby', title: 'Бобат-терапия', description: 'Нейроразвивающая терапия' },
+    { icon: 'Dumbbell', title: 'ЛФК/АФК', description: 'Лечебная физкультура' },
+    { icon: 'HandMetal', title: 'Рефлексотерапия', description: 'Акупунктура и массаж' },
+    { icon: 'MessageCircle', title: 'Логопедия', description: 'Развитие речи' },
+    { icon: 'Brain', title: 'Нейропсихология', description: 'Когнитивная реабилитация' },
+  ];
+
+  const testimonials = [
+    {
+      icon: 'Users',
+      title: 'Наконец-то нашли своего врача!',
+      author: 'Семья Ивановых, сын Кирилл (5 лет)',
+      diagnosis: 'диагноз: ЗПРР',
+      text: 'После консультации у Алёны Валерьевны мы впервые поняли, что происходит с сыном и что делать. Следуем плану уже 3 месяца — прогресс огромный!',
+    },
+    {
+      icon: 'Heart',
+      title: 'Вернули возможность двигаться после инсульта',
+      author: 'Мария Петровна (68 лет)',
+      diagnosis: '',
+      text: 'Благодаря курсу ЛФК и БАК снова могу самостоятельно ходить по квартире. Спасибо за терпение и профессионализм!',
+    },
+    {
+      icon: 'Briefcase',
+      title: 'Перестали болеть голова и спина',
+      author: 'Андрей Сергеевич (42 года)',
+      diagnosis: 'руководитель',
+      text: 'Программа «Здоровая спина» изменила мою жизнь. Теперь работаю продуктивно без постоянного дискомфорта.',
+    },
+  ];
+
+  const offers = [
+    {
+      title: 'Диагностический пакет «Понять всё о развитии ребёнка»',
+      description: 'Консультация невролога + диагностика уровня развития. Вы получите ответы: "В чём причина?" и "Что делать?".',
+      buttonText: 'Получить консультацию',
+    },
+    {
+      title: 'Экспресс-диагностика «Причина головной боли»',
+      description: 'Приём невролога + ЭЭГ. Быстро найдём источник проблемы и предложим лечение.',
+      buttonText: 'Избавиться от боли',
+    },
+    {
+      title: 'Выезд специалиста на дом — фиксированная стоимость',
+      description: 'Невролог или психолог приедет к вам. Решение для лежачих больных и тех, у кого нет времени на визит в клинику.',
+      buttonText: 'Вызвать специалиста',
     },
   ];
 
@@ -341,6 +411,35 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="bg-muted/30 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-4 text-center text-3xl font-bold text-primary md:text-4xl">
+              Наши методики
+            </h2>
+            <p className="mb-12 text-center text-muted-foreground">
+              Современные технологии реабилитации и развития
+            </p>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {methods.map((method, index) => (
+                <Card key={index} className="text-center transition-all hover:shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="mb-4 flex justify-center">
+                      <div className="rounded-full bg-secondary/10 p-4">
+                        <Icon name={method.icon} className="h-8 w-8 text-secondary" />
+                      </div>
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-primary">{method.title}</h3>
+                    <p className="text-sm text-muted-foreground">{method.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="team" className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl">
@@ -399,6 +498,84 @@ const Index = () => {
                   <p className="text-sm">мы не отказываем в помощи даже в самых сложных случаях</p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-4 text-center text-3xl font-bold text-primary md:text-4xl">
+              Нам доверяют самое ценное
+            </h2>
+            <p className="mb-12 text-center text-muted-foreground">Реальные истории наших пациентов</p>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="transition-all hover:shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="mb-4 flex justify-center">
+                      <div className="rounded-full bg-accent/10 p-3">
+                        <Icon name={testimonial.icon} className="h-6 w-6 text-accent" />
+                      </div>
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-primary">{testimonial.title}</h3>
+                    <p className="mb-1 text-sm font-medium text-secondary">{testimonial.author}</p>
+                    {testimonial.diagnosis && (
+                      <p className="mb-3 text-xs text-muted-foreground">{testimonial.diagnosis}</p>
+                    )}
+                    <p className="text-sm italic text-muted-foreground">"{testimonial.text}"</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-br from-destructive/5 to-destructive/10 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-4 text-center text-3xl font-bold text-primary md:text-4xl">
+              Первый шаг к решению — со скидкой
+            </h2>
+            <p className="mb-12 text-center text-muted-foreground">Специальные предложения для новых пациентов</p>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              {offers.map((offer, index) => (
+                <Card key={index} className="border-2 border-destructive/20 transition-all hover:border-destructive/40 hover:shadow-xl">
+                  <CardContent className="p-6">
+                    <h3 className="mb-4 text-lg font-bold text-primary">{offer.title}</h3>
+                    <p className="mb-6 text-sm text-muted-foreground">{offer.description}</p>
+                    <Sheet>
+                      <SheetTrigger asChild>
+                        <Button className="w-full">{offer.buttonText}</Button>
+                      </SheetTrigger>
+                      <SheetContent>
+                        <SheetHeader>
+                          <SheetTitle>{offer.title}</SheetTitle>
+                        </SheetHeader>
+                        <form className="mt-6 space-y-4">
+                          <div>
+                            <Label htmlFor={`offer-name-${index}`}>Ваше имя</Label>
+                            <Input id={`offer-name-${index}`} placeholder="Введите имя" />
+                          </div>
+                          <div>
+                            <Label htmlFor={`offer-phone-${index}`}>Телефон</Label>
+                            <Input id={`offer-phone-${index}`} type="tel" placeholder="+7 (___) ___-__-__" />
+                          </div>
+                          <div>
+                            <Label htmlFor={`offer-comment-${index}`}>Комментарий</Label>
+                            <Textarea id={`offer-comment-${index}`} placeholder="Опишите вашу ситуацию" />
+                          </div>
+                          <Button className="w-full">Отправить заявку</Button>
+                        </form>
+                      </SheetContent>
+                    </Sheet>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
