@@ -164,7 +164,7 @@ const ServiceNeurologist = () => {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="#">
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-accent transition-colors" href="/events">
                     Мероприятия
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -196,7 +196,7 @@ const ServiceNeurologist = () => {
             <a href="/services/neurologist" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Детям</a>
             <a href="/#services" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Взрослым</a>
             <a href="#" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Программы</a>
-            <a href="#" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Мероприятия</a>
+            <a href="/events" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Мероприятия</a>
             <a href="/#contact" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Контакты</a>
           </nav>
         </SheetContent>
