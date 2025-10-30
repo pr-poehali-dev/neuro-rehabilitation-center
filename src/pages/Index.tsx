@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -18,6 +19,9 @@ import {
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
+  const [callbackOpen, setCallbackOpen] = useState(false);
+  const [homeServiceOpen, setHomeServiceOpen] = useState(false);
 
   const specialists = [
     {
@@ -182,26 +186,64 @@ const Index = () => {
             <span className="text-xl font-bold text-primary">Потенциал</span>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:text-primary" href="#about">
-                    О нас
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="/">
+                    Главная
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:text-primary" href="#services">
-                    Направления
+                  <NavigationMenuTrigger className="text-sm">О нас</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[200px] gap-2 p-4">
+                      <li><a href="#about" className="block rounded-md p-2 text-sm hover:bg-accent">Наша философия</a></li>
+                      <li><a href="#team" className="block rounded-md p-2 text-sm hover:bg-accent">Команда</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Лицензии и документы</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Галерея</a></li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm">Детям</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[250px] gap-2 p-4">
+                      <li className="font-semibold text-xs text-muted-foreground px-2">Консультации и диагностика</li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Невролог</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Диагностика готовности к школе</a></li>
+                      <li className="font-semibold text-xs text-muted-foreground px-2 mt-2">Терапия</li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Бобат-терапия</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">БАК</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">ЛФК/АФК</a></li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm">Взрослым</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[250px] gap-2 p-4">
+                      <li className="font-semibold text-xs text-muted-foreground px-2">Консультации</li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Невролог</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">ЭЭГ</a></li>
+                      <li className="font-semibold text-xs text-muted-foreground px-2 mt-2">Терапия</li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">Рефлексотерапия</a></li>
+                      <li><a href="#" className="block rounded-md p-2 text-sm hover:bg-accent">БАК</a></li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="#">
+                    Программы
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:text-primary" href="#team">
-                    Команда
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="#">
+                    Мероприятия
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:text-primary" href="#contact">
+                  <NavigationMenuLink className="px-3 py-2 text-sm font-medium hover:text-primary" href="#contact">
                     Контакты
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -210,45 +252,130 @@ const Index = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="sm" className="hidden md:flex">
-                  <Icon name="Calendar" className="mr-2 h-4 w-4" />
-                  Записаться
-                </Button>
-              </SheetTrigger>
-              <SheetContent>
-                <SheetHeader>
-                  <SheetTitle>Записаться на прием</SheetTitle>
-                </SheetHeader>
-                <form className="mt-6 space-y-4">
-                  <div>
-                    <Label htmlFor="name">Ваше имя</Label>
-                    <Input id="name" placeholder="Введите имя" />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Телефон</Label>
-                    <Input id="phone" type="tel" placeholder="+7 (___) ___-__-__" />
-                  </div>
-                  <div>
-                    <Label htmlFor="service">Услуга</Label>
-                    <Input id="service" placeholder="Консультация невролога" />
-                  </div>
-                  <div>
-                    <Label htmlFor="comment">Комментарий</Label>
-                    <Textarea id="comment" placeholder="Опишите вашу ситуацию" />
-                  </div>
-                  <Button className="w-full">Отправить заявку</Button>
-                </form>
-              </SheetContent>
-            </Sheet>
-
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <Icon name="Menu" className="h-6 w-6" />
             </Button>
           </div>
         </div>
       </header>
+
+      <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+        <SheetContent side="left">
+          <SheetHeader>
+            <SheetTitle>Меню</SheetTitle>
+          </SheetHeader>
+          <nav className="mt-6 flex flex-col gap-2">
+            <a href="/" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Главная</a>
+            <a href="#about" className="rounded-md p-3 text-sm font-medium hover:bg-accent">О нас</a>
+            <a href="#services" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Детям</a>
+            <a href="#services" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Взрослым</a>
+            <a href="#" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Программы</a>
+            <a href="#" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Мероприятия</a>
+            <a href="#contact" className="rounded-md p-3 text-sm font-medium hover:bg-accent">Контакты</a>
+          </nav>
+        </SheetContent>
+      </Sheet>
+
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <Sheet open={homeServiceOpen} onOpenChange={setHomeServiceOpen}>
+          <SheetTrigger asChild>
+            <Button size="lg" className="shadow-lg">
+              <Icon name="Home" className="mr-2 h-5 w-5" />
+              Специалист на дом
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Специалист на дом</SheetTitle>
+            </SheetHeader>
+            <form className="mt-6 space-y-4">
+              <div>
+                <Label htmlFor="home-name">Ваше имя</Label>
+                <Input id="home-name" placeholder="Введите имя" />
+              </div>
+              <div>
+                <Label htmlFor="home-phone">Телефон</Label>
+                <Input id="home-phone" type="tel" placeholder="+7 (___) ___-__-__" />
+              </div>
+              <div>
+                <Label htmlFor="home-service">Услуга</Label>
+                <Input id="home-service" placeholder="Невролог, психолог, др." />
+              </div>
+              <div>
+                <Label htmlFor="home-address">Адрес</Label>
+                <Input id="home-address" placeholder="Укажите адрес" />
+              </div>
+              <div>
+                <Label htmlFor="home-comment">Комментарий</Label>
+                <Textarea id="home-comment" placeholder="Дополнительная информация" />
+              </div>
+              <Button className="w-full">Отправить заявку</Button>
+            </form>
+          </SheetContent>
+        </Sheet>
+
+        <Sheet open={appointmentOpen} onOpenChange={setAppointmentOpen}>
+          <SheetTrigger asChild>
+            <Button size="lg" className="shadow-lg">
+              <Icon name="Calendar" className="mr-2 h-5 w-5" />
+              Записаться на прием
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Записаться на прием</SheetTitle>
+            </SheetHeader>
+            <form className="mt-6 space-y-4">
+              <div>
+                <Label htmlFor="appt-name">Ваше имя</Label>
+                <Input id="appt-name" placeholder="Введите имя" />
+              </div>
+              <div>
+                <Label htmlFor="appt-phone">Телефон</Label>
+                <Input id="appt-phone" type="tel" placeholder="+7 (___) ___-__-__" />
+              </div>
+              <div>
+                <Label htmlFor="appt-service">Услуга/специалист</Label>
+                <Input id="appt-service" placeholder="Консультация невролога" />
+              </div>
+              <div>
+                <Label htmlFor="appt-date">Удобная дата/время</Label>
+                <Input id="appt-date" type="datetime-local" />
+              </div>
+              <Button className="w-full">Отправить заявку</Button>
+            </form>
+          </SheetContent>
+        </Sheet>
+
+        <Sheet open={callbackOpen} onOpenChange={setCallbackOpen}>
+          <SheetTrigger asChild>
+            <Button size="lg" variant="secondary" className="shadow-lg">
+              <Icon name="Phone" className="mr-2 h-5 w-5" />
+              Заказать звонок
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Заказать звонок</SheetTitle>
+            </SheetHeader>
+            <form className="mt-6 space-y-4">
+              <div>
+                <Label htmlFor="call-name">Ваше имя</Label>
+                <Input id="call-name" placeholder="Введите имя" />
+              </div>
+              <div>
+                <Label htmlFor="call-phone">Телефон</Label>
+                <Input id="call-phone" type="tel" placeholder="+7 (___) ___-__-__" />
+              </div>
+              <div>
+                <Label htmlFor="call-time">Удобное время для звонка</Label>
+                <Input id="call-time" type="time" />
+              </div>
+              <Button className="w-full">Заказать звонок</Button>
+            </form>
+          </SheetContent>
+        </Sheet>
+      </div>
 
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/10 py-20 md:py-32">
         <div className="container mx-auto px-4">
