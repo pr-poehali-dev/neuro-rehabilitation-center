@@ -282,7 +282,7 @@ const Index = () => {
         </SheetContent>
       </Sheet>
 
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
         <Sheet open={homeServiceOpen} onOpenChange={setHomeServiceOpen}>
           <SheetTrigger asChild>
             <Button size="lg" className="shadow-lg">
@@ -433,12 +433,6 @@ const Index = () => {
                   </form>
                 </SheetContent>
               </Sheet>
-              <Button size="lg" variant="outline" asChild>
-                <a href="tel:+79129570907">
-                  <Icon name="Phone" className="mr-2 h-5 w-5" />
-                  8-912-95-70907
-                </a>
-              </Button>
             </div>
           </div>
         </div>

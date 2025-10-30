@@ -24,6 +24,8 @@ import {
 const ServiceNeurologist = () => {
   const [appointmentOpen, setAppointmentOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [callbackOpen, setCallbackOpen] = useState(false);
+  const [homeServiceOpen, setHomeServiceOpen] = useState(false);
 
   const targetAudience = [
     {
@@ -199,6 +201,107 @@ const ServiceNeurologist = () => {
           </nav>
         </SheetContent>
       </Sheet>
+
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+        <Sheet open={homeServiceOpen} onOpenChange={setHomeServiceOpen}>
+          <SheetTrigger asChild>
+            <Button size="lg" className="shadow-lg">
+              <Icon name="Home" className="mr-2 h-5 w-5" />
+              Специалист на дом
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Специалист на дом</SheetTitle>
+            </SheetHeader>
+            <form className="mt-6 space-y-4">
+              <div>
+                <Label htmlFor="home-name">Ваше имя</Label>
+                <Input id="home-name" placeholder="Введите имя" />
+              </div>
+              <div>
+                <Label htmlFor="home-phone">Телефон</Label>
+                <Input id="home-phone" type="tel" placeholder="+7 (___) ___-__-__" />
+              </div>
+              <div>
+                <Label htmlFor="home-service">Услуга</Label>
+                <Input id="home-service" placeholder="Невролог, психолог, др." />
+              </div>
+              <div>
+                <Label htmlFor="home-address">Адрес</Label>
+                <Input id="home-address" placeholder="Укажите адрес" />
+              </div>
+              <div>
+                <Label htmlFor="home-comment">Комментарий</Label>
+                <Textarea id="home-comment" placeholder="Дополнительная информация" />
+              </div>
+              <Button className="w-full">Отправить заявку</Button>
+            </form>
+          </SheetContent>
+        </Sheet>
+
+        <Sheet open={appointmentOpen} onOpenChange={setAppointmentOpen}>
+          <SheetTrigger asChild>
+            <Button size="lg" className="shadow-lg">
+              <Icon name="Calendar" className="mr-2 h-5 w-5" />
+              Записаться на прием
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Записаться на прием</SheetTitle>
+            </SheetHeader>
+            <form className="mt-6 space-y-4">
+              <div>
+                <Label htmlFor="appt-name">Ваше имя</Label>
+                <Input id="appt-name" placeholder="Введите имя" />
+              </div>
+              <div>
+                <Label htmlFor="appt-phone">Телефон</Label>
+                <Input id="appt-phone" type="tel" placeholder="+7 (___) ___-__-__" />
+              </div>
+              <div>
+                <Label htmlFor="appt-service">Услуга/специалист</Label>
+                <Input id="appt-service" placeholder="Консультация невролога" />
+              </div>
+              <div>
+                <Label htmlFor="appt-date">Удобная дата/время</Label>
+                <Input id="appt-date" type="datetime-local" />
+              </div>
+              <Button className="w-full">Отправить заявку</Button>
+            </form>
+          </SheetContent>
+        </Sheet>
+
+        <Sheet open={callbackOpen} onOpenChange={setCallbackOpen}>
+          <SheetTrigger asChild>
+            <Button size="lg" variant="secondary" className="shadow-lg">
+              <Icon name="Phone" className="mr-2 h-5 w-5" />
+              Заказать звонок
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Заказать звонок</SheetTitle>
+            </SheetHeader>
+            <form className="mt-6 space-y-4">
+              <div>
+                <Label htmlFor="call-name">Ваше имя</Label>
+                <Input id="call-name" placeholder="Введите имя" />
+              </div>
+              <div>
+                <Label htmlFor="call-phone">Телефон</Label>
+                <Input id="call-phone" type="tel" placeholder="+7 (___) ___-__-__" />
+              </div>
+              <div>
+                <Label htmlFor="call-time">Удобное время для звонка</Label>
+                <Input id="call-time" type="time" />
+              </div>
+              <Button className="w-full">Заказать звонок</Button>
+            </form>
+          </SheetContent>
+        </Sheet>
+      </div>
 
       <section className="relative overflow-hidden py-20 md:py-32">
         <div 
